@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful | Anjaneya Jyotish Guruji</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .success-body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .success-card {
+      width: min(100%, 560px);
+      padding: 34px;
+      border-radius: 8px;
+      background: #fffaf0;
+      box-shadow: 0 22px 70px rgba(73, 52, 14, 0.13);
+      text-align: center;
+    }
+
+    .success-card img {
+      width: 120px;
+      margin: 0 auto 18px;
+    }
+
+    .success-card h1 {
+      margin-bottom: 12px;
+      color: #181d43;
+      font-size: clamp(32px, 6vw, 52px);
+    }
+
+    .success-card p {
+      color: #5e5b55;
+      line-height: 1.7;
+    }
+
+    .success-whatsapp {
+      width: 100%;
+      margin: 24px 0;
+    }
+
+    .success-info {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #fff6df;
+      color: #5e5b55;
+      text-align: left;
+    }
+
+    .success-info strong {
+      color: #181d43;
+    }
+  </style>
+</head>
+
+<body class="success-body">
+  <main class="success-card">
+    <img src="anjaneya-logo.png" alt="Anjaneya Jyotish Guruji logo" />
+    <h1>भुगतान सफल हुआ</h1>
+    <p id="successService">आपकी सेवा जानकारी यहां दिखाई देगी।</p>
+    <a class="primary-btn success-whatsapp" id="whatsappNow" href="#">WhatsApp Now</a>
+    <div class="success-info">
+      <strong>Next Steps</strong>
+      <span>WhatsApp पर गुरुजी को payment reference / transaction ID भेजें।</span>
+      <span>Consultation timing और required details chat में confirm होंगे।</span>
+      <span>Contact: +91 73986 00029</span>
+    </div>
+  </main>
+  <script>
+    const service = localStorage.getItem("bookingService") || "[Service Name]";
+    const txParams = new URLSearchParams(window.location.search);
+    const tx = txParams.get("transaction_id") || txParams.get("order_id") || txParams.get("cf_payment_id") || "[Transaction ID]";
+    document.getElementById("successService").textContent = `Service: ${service}`;
+    const message = `Namaste Guruji, I have completed payment for ${service}. My payment reference is ${tx}. Please guide me regarding the next steps.`;
+    const whatsappURL = `https://wa.me/917398600029?text=${encodeURIComponent(message)}`;
+    document.getElementById("whatsappNow").href = whatsappURL;
+    setTimeout(() => {
+      window.location.href = whatsappURL;
+    }, 1200);
+  </script>
+</body>
+
+</html>
