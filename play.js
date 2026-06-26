@@ -130,10 +130,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const serviceLabels = {
     en: {
       "": "Select Consultation",
-      "Kundali Reading & Analysis": "Kundali Reading & Analysis - â‚¹2500",
-      "Daily Horoscope": "Daily Horoscope - â‚¹99",
-      "Compatibility Analysis": "Compatibility Analysis - â‚¹299",
-      "Career Counseling": "Career Counseling - â‚¹499"
+      "Kundali Reading & Analysis": "Kundali Reading & Analysis - ₹2500",
+      "Daily Horoscope": "Daily Horoscope - ₹99",
+      "Compatibility Analysis": "Compatibility Analysis - ₹299",
+      "Career Counseling": "Career Counseling - ₹499"
     },
     hi: {
       "": "परामर्श चुनें",
